@@ -4,5 +4,5 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "./data_extractor.py"]
+CMD ["python", "./scripts/data_extractor.py"]
 

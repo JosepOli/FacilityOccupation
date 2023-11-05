@@ -1,8 +1,10 @@
 version: '3'
 services:
-  web:
-    image: my-website
-    build: .
+    web:
+    build:
+      context: .
+    volumes:
+      - ./scripts:/usr/src/app/scripts
     depends_on:
       - nginx
   nginx:

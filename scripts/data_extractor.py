@@ -1,6 +1,6 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
 import json
 import time
+from apscheduler.schedulers.blocking import BlockingScheduler
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 

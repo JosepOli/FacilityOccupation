@@ -1,29 +1,38 @@
-from selenium import webdriver
 from apscheduler.schedulers.blocking import BlockingScheduler
 import json
 import time
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 
 def extract_and_save():
-    # Set up Selenium WebDriver
-    driver = webdriver.Chrome(executable_path='C:\\Users\\TeH_h\\OneDrive\\Documentos\\Python Scripts\\chrome-win64\\chromedriver.exe')
-    driver.get('https://esportsgava.deporsite.net/ocupacion-aforo')
+    try:
+        # Set up Selenium WebDriver
+        driver = webdriver.PhantomJS()
+        driver.get('https://esportsgava.deporsite.net/ocupacion-aforo')
 
-    # Wait for JavaScript to render
-    time.sleep(5)  # Adjust this wait time as needed
+        # Wait for JavaScript to render
+        time.sleep(5)
 
-    # Extract graph data (This is a placeholder, you'll need to implement the actual extraction)
-    graph_data = {
-        'graph1': {},
-        'graph2': {},
-        'graph3': {}
-    }
+        # Extract data (Implement actual extraction logic)
+        graph_data = {
+            'graph1': {},
+            'graph2': {},
+            'graph3': {}
+        }
 
-    # Save data to a JSON file
-    with open('graph_data.json', 'w') as file:
-        json.dump(graph_data, file)
+        # Save data to a JSON file
+        with open('graph_data.json', 'w') as file:
+            json.dump(graph_data, file)
 
-    # Close the WebDriver
-    driver.quit()
+    except WebDriverException as e:
+        print(f"WebDriver Error: {e}")
+        # Optionally, log the error to a file
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        # Optionally, log the error to a file
+    finally:
+        # Ensure the WebDriver is closed even if an error occurs
+        driver.quit()
 
 # Set up scheduler to run the extract_and_save function every 15 minutes
 scheduler = BlockingScheduler()

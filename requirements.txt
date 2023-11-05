@@ -1,2 +1,2 @@
-selenium==4.15.2
+selenium
 APScheduler==3.10.4

@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
 def extract_and_save():
+    driver = None  # Define driver outside the try block
     try:
         # Set up Selenium WebDriver
         driver = webdriver.PhantomJS()
@@ -31,8 +32,9 @@ def extract_and_save():
         print(f"An error occurred: {e}")
         # Optionally, log the error to a file
     finally:
-        # Ensure the WebDriver is closed even if an error occurs
-        driver.quit()
+        # Ensure the WebDriver is closed only if it was successfully created
+        if driver is not None:
+            driver.quit()
 
 # Set up scheduler to run the extract_and_save function every 15 minutes
 scheduler = BlockingScheduler()

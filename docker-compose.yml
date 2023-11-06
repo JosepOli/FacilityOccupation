@@ -7,3 +7,4 @@ services:
             - "8080:80"
         volumes:
             - ./scripts:/usr/src/app/scripts
+            

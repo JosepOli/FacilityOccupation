@@ -4,35 +4,14 @@ FROM arm32v7/python:3.9-slim
 # Setting the working directory in the container
 WORKDIR /usr/src/app
 
-# Install Chromium and dependencies
+# Install necessary system dependencies
 RUN apt-get update && apt-get install -y \
-    chromium \
-    chromium-driver \
-    libglib2.0-0 \
-    libnss3 \
-    libx11-6 \
-    libx11-xcb1 \
-    libxcb1 \
-    libxcomposite1 \
-    libxcursor1 \
-    libxdamage1 \
-    libxext6 \
-    libxfixes3 \
-    libxi6 \
-    libxrandr2 \
-    libxrender1 \
-    libxss1 \
-    libxtst6 \
     ca-certificates \
-    fonts-liberation \
-    libappindicator1 \
-    libnss3 \
-    lsb-release \
-    xdg-utils \
-    wget \
+    libffi-dev \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Install Python dependencies
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 

@@ -118,7 +118,7 @@ async def extract_and_save():
 
 # Function to manually test the script
 def manual_test():
-    print("Starting manual test of the script...")
+    print("Starting test of the script...")
     asyncio.get_event_loop().run_until_complete(extract_and_save())
 
 

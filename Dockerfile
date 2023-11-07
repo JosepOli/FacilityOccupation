@@ -1,5 +1,5 @@
 # Using an ARM architecture Python base image compatible with Raspberry Pi
-FROM arm32v7/python:3.6-slim
+FROM arm32v7/python:3.8-slim
 
 # Setting the working directory in the container
 WORKDIR /usr/src/app
@@ -15,9 +15,8 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirements.txt ./
-RUN pip install --verbose --no-cache-dir -r requirements.txt
+# Install Python dependencies one by one
+RUN pip install --verbose --no-cache-dir Flask requests-html
 
 # Copy the application source code to the container
 COPY . .

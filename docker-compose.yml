@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  chart-app:
+    build: .
+    container_name: chart-app
+    restart: unless-stopped
+    ports:
+      - "8082:5000"
+    volumes:
+      - "./data:/usr/src/app/data"

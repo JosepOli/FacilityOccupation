@@ -10,11 +10,13 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libssl-dev \
     gcc \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirements.txt ./
-RUN pip install --verbose --no-cache-dir -r requirements.txt
+# Install Python dependencies one by one
+RUN pip install --verbose --no-cache-dir Flask==1.1.2
+RUN pip install --verbose --no-cache-dir requests-html==0.10.0
+RUN pip install --verbose --no-cache-dir aiohttp==3.7.4.post0
 
 # Copy the application source code to the container
 COPY . .

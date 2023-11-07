@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Chart App</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="filter-container">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date">
+
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date">
+
+        <label for="facility-selector">Select Facility:</label>
+        <select id="facility-selector">
+            <option value="all">All Facilities</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+
+        <button id="filter-button">Filter</button>
+    </div>
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="/static/js/chart-setup.js"></script>
+
+</body>
+
+</html>

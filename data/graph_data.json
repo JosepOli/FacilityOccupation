@@ -1,0 +1,44 @@
+[
+    {
+        "facility": "Piscina Can Tintorer",
+        "percentage": "18%",
+        "current_occupancy": 7,
+        "max_occupancy": 40,
+        "timestamp": "2023-11-07 11:22:27"
+    },
+    {
+        "facility": "Nova Piscina",
+        "percentage": "43%",
+        "current_occupancy": 43,
+        "max_occupancy": 100,
+        "timestamp": "2023-11-07 11:22:27"
+    },
+    {
+        "facility": "La Bobila",
+        "percentage": "69%",
+        "current_occupancy": 31,
+        "max_occupancy": 45,
+        "timestamp": "2023-11-07 11:22:27"
+    },
+    {
+        "facility": "Piscina Can Tintorer",
+        "percentage": "18%",
+        "current_occupancy": 7,
+        "max_occupancy": 40,
+        "timestamp": "2023-11-07 11:40:14"
+    },
+    {
+        "facility": "Nova Piscina",
+        "percentage": "32%",
+        "current_occupancy": 32,
+        "max_occupancy": 100,
+        "timestamp": "2023-11-07 11:40:14"
+    },
+    {
+        "facility": "La Bobila",
+        "percentage": "76%",
+        "current_occupancy": 34,
+        "max_occupancy": 45,
+        "timestamp": "2023-11-07 11:40:14"
+    }
+]

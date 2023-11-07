@@ -1,0 +1,17 @@
+my-simple-chart-app/
+|-- data/
+|   `-- graph_data.json
+|-- scripts/
+|   `-- data_extractor.py
+|-- static/
+|   |-- css/
+|   |   `-- styles.css  # Make sure this file exists here
+|   `-- js/
+|       `-- chart-setup.js
+|-- templates/
+|   `-- index.html
+|-- app.py
+|-- .dockerignore
+|-- Dockerfile
+|-- requirements.txt
+`-- README.md

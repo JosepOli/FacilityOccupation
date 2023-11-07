@@ -1,26 +1,25 @@
 /* styles.css */
-body,
-html {
+body, html {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif; /* Arial is a common sans-serif font */
+    background-color: #F7F7F7; /* Light grey background, similar to Forocoches */
+    color: #333; /* Dark grey text color for readability */
 }
 
 .chart-container {
     width: 80vw;
     height: 40vh;
     margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #FFFFFF; /* White background for the chart container */
 }
 
 canvas {
     display: block;
     width: 100%;
     height: 100%;
-}
-
-.chart-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
 }
 
 .chart-container:hover {
@@ -31,29 +30,36 @@ canvas {
 .filter-container {
     margin-bottom: 20px;
     text-align: center;
+    width: 100%; /* Ensure full width to center children correctly */
 }
 
 .filter-container label,
 .filter-container select,
-.filter-container input,
+.filter-container input[type="date"],
 .filter-container button {
-    margin-right: 10px;
+    display: inline-block; /* Change to inline-block for horizontal layout */
+    margin: 5px; /* Added some space around elements */
+}
+
+.filter-container button,
+.time-frame-selector button {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: none; /* Remove border for a flatter design */
     border-radius: 5px;
+    background-color: #3498DB; /* Blue background color */
+    color: white;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.filter-container button {
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+.filter-container button:hover,
+.time-frame-selector button:hover {
+    background-color: #297AB1; /* Darker blue on hover */
 }
 
-.filter-container button:hover {
-    background-color: #0056b3;
-    border-color: #004085;
+.time-frame-selector button.active {
+    background-color: #297AB1; /* Darker blue for active state */
+    color: #fff;
 }
 
 

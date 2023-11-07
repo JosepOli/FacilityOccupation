@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Simple Chart App</title>
+    <title>Gavà Facilities Occupation</title>
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -21,6 +22,12 @@
             <option value="all">All Facilities</option>
             <!-- Options will be populated by JavaScript -->
         </select>
+
+        <div class="time-frame-selector">
+            <button id="last-week">Last Week</button>
+            <button id="last-month">Last Month</button>
+            <button id="last-year">Last Year</button>
+        </div>
 
         <button id="filter-button">Filter</button>
     </div>

@@ -82,5 +82,26 @@
         "current_occupancy": 27,
         "max_occupancy": 45,
         "timestamp": "2023-11-07 14:20:02"
+    },
+    {
+        "facility": "Piscina Can Tintorer",
+        "percentage": "30%",
+        "current_occupancy": 12,
+        "max_occupancy": 40,
+        "timestamp": "2023-11-07 15:54:37"
+    },
+    {
+        "facility": "Nova Piscina",
+        "percentage": "52%",
+        "current_occupancy": 52,
+        "max_occupancy": 100,
+        "timestamp": "2023-11-07 15:54:37"
+    },
+    {
+        "facility": "La Bobila",
+        "percentage": "84%",
+        "current_occupancy": 38,
+        "max_occupancy": 45,
+        "timestamp": "2023-11-07 15:54:37"
     }
 ]

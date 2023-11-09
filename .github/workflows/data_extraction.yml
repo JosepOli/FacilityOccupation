@@ -40,7 +40,7 @@ jobs:
         git config --global user.name "GitHub Action"
         git add -A
         git commit -m "Update data" -a || echo "No changes to commit"
-        git push --set-upstream origin HEAD:main
+        git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/JosepOli/FacilityOccupation.git HEAD:main
       env:
-          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
   

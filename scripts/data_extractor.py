@@ -11,7 +11,7 @@ def extract_and_save():
 
     try:
         r = session.get(url)
-        r.html.render(sleep=1)  # Give time for any JavaScript to execute
+        r.html.render(sleep=10)  # Give time for any JavaScript to execute
 
         selectors = [".col-1de3", ".col-2de3", ".col-3de3"]
 

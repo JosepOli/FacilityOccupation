@@ -37,3 +37,9 @@ jobs:
       with:
         name: graph-data
         path: graph_data.json
+    - name: Upload HTML content for inspection (if exists)
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: html-content
+        path: page_content.html

@@ -1,40 +1,6 @@
 import json
 from requests_html import HTMLSession
 from datetime import datetime
-import os
-
-
-# Helper function to get the absolute path of the data directory
-def get_data_dir():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    return os.path.join(base_dir, "data")
-
-
-# Ensure that the data directory exists
-def ensure_data_dir_exists():
-    data_dir = get_data_dir()
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-
-
-# Function to log errors to a file in the data directory
-def log_error(error_message):
-    ensure_data_dir_exists()
-    error_log_path = os.path.join(get_data_dir(), "error_log.txt")
-    with open(error_log_path, "a") as log_file:
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        log_file.write(f"{timestamp} - {error_message}\n")
-
-
-# Function to save data to a JSON file in the data directory
-def save_to_json(data_list):
-    ensure_data_dir_exists()
-    file_path = os.path.join(get_data_dir(), "graph_data.json")
-    try:
-        with open(file_path, "w") as file:
-            json.dump(data_list, file, indent=4)
-    except Exception as e:
-        log_error(f"An error occurred while saving data: {e}")
 
 
 # Function to extract and save data
@@ -66,17 +32,12 @@ def extract_and_save():
             graph_data.append(data)
 
     if graph_data:
-        save_to_json(graph_data)
+        with open("graph_data.json", "w") as file:
+            json.dump(graph_data, file, indent=4)
         print("Data extracted and saved successfully.")
     else:
-        log_error("No graph data could be extracted.")
-
-
-# Function to run the data extraction process
-def run_data_extraction():
-    print("Running data extraction...")
-    extract_and_save()
+        print("No graph data could be extracted.")
 
 
 if __name__ == "__main__":
-    run_data_extraction()
+    extract_and_save()

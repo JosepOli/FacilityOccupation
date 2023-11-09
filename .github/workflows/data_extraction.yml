@@ -27,15 +27,13 @@ jobs:
         python-version: '3.8'
 
     - name: Install dependencies
-      run: |
-        pip install requests_html
+      run: pip install requests_html pyppeteer
 
     - name: Run data extraction script
-      run: |
-        python scripts/data_extractor.py
+      run: python scripts/data_extractor.py
 
     - name: Upload data as artifact
       uses: actions/upload-artifact@v3
       with:
         name: graph-data
-        path: data/graph_data.json
+        path: graph_data.json

@@ -33,7 +33,7 @@ jobs:
     - name: Run data extraction script
       run: |
         python scripts/data_extractor.py
-  
+
     - name: Upload data as artifact
       uses: actions/upload-artifact@v3
       with:

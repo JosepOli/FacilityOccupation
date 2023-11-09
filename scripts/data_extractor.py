@@ -26,23 +26,15 @@ def log_error(error_message):
         log_file.write(f"{timestamp} - {error_message}\n")
 
 
-# Function to append a list of data to a JSON file in the data directory
-def append_to_json(data_list):
+# Function to save data to a JSON file in the data directory
+def save_to_json(data_list):
     ensure_data_dir_exists()
     file_path = os.path.join(get_data_dir(), "graph_data.json")
     try:
-        if os.path.exists(file_path):
-            with open(file_path, "r") as file:
-                file_data = json.load(file)
-        else:
-            file_data = []
-
-        file_data.extend(data_list)
-
         with open(file_path, "w") as file:
-            json.dump(file_data, file, indent=4)
+            json.dump(data_list, file, indent=4)
     except Exception as e:
-        log_error(f"An error occurred while appending data: {e}")
+        log_error(f"An error occurred while saving data: {e}")
 
 
 # Function to extract and save data
@@ -74,7 +66,7 @@ def extract_and_save():
             graph_data.append(data)
 
     if graph_data:
-        append_to_json(graph_data)
+        save_to_json(graph_data)
         print("Data extracted and saved successfully.")
     else:
         log_error("No graph data could be extracted.")

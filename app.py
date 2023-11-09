@@ -3,6 +3,7 @@ import json
 import os
 import requests
 from datetime import datetime, timedelta
+from collections import defaultdict
 
 app = Flask(__name__)
 

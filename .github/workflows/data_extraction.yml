@@ -25,11 +25,11 @@ jobs:
 
     - name: Install Python dependencies
       run: |
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         pip install requests_html pyppeteer
 
     - name: Run data extraction script
-      run: python scripts/data_extractor.py
+      run: python3 scripts/data_extractor.py
 
     - name: Upload graph data as artifact
       uses: actions/upload-artifact@v3

@@ -33,14 +33,9 @@ jobs:
     - name: Run data extraction script
       run: |
         python scripts/data_extractor.py
-
-    - name: Commit and push if there are changes
-      run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
-        git add -A
-        git commit -m "Update data" -a || echo "No changes to commit"
-        git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/JosepOli/FacilityOccupation.git HEAD:master
-      env:
-        MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
   
+    - name: Upload data as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: graph-data
+        path: data/graph_data.json

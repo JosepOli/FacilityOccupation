@@ -118,19 +118,19 @@ fetchDataAndUpdateChart();
 // Set an interval to update the chart regularly
 setInterval(fetchDataAndUpdateChart, 900000); // Update every 15 minutes
 
-document.getElementById('last-week').addEventListener('click', function() {
+document.getElementById('last-week').addEventListener('click', function () {
     const lastWeek = getLastWeekDates();
     const selectedFacility = document.getElementById('facility-selector').value;
     fetchDataAndUpdateChart(lastWeek.startDate, lastWeek.endDate, selectedFacility);
 });
 
-document.getElementById('last-month').addEventListener('click', function() {
+document.getElementById('last-month').addEventListener('click', function () {
     const lastMonth = getLastMonthDates();
     const selectedFacility = document.getElementById('facility-selector').value;
     fetchDataAndUpdateChart(lastMonth.startDate, lastMonth.endDate, selectedFacility);
 });
 
-document.getElementById('last-year').addEventListener('click', function() {
+document.getElementById('last-year').addEventListener('click', function () {
     const lastYear = getLastYearDates();
     const selectedFacility = document.getElementById('facility-selector').value;
     fetchDataAndUpdateChart(lastYear.startDate, lastYear.endDate, selectedFacility);

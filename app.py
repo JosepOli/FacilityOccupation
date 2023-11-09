@@ -1,8 +1,8 @@
-from collections import defaultdict
 from flask import Flask, jsonify, render_template, request
-from datetime import datetime, timedelta
 import json
 import os
+import requests
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
@@ -11,6 +11,24 @@ app = Flask(__name__)
 def get_data_dir():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(base_dir, "data")
+
+
+def fetch_latest_data():
+    # GitHub repository API URL for the data file
+    url = "https://raw.githubusercontent.com/JosepOli/FacilityOccupation/main/data/graph_data.json"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises HTTPError if the HTTP request returned an unsuccessful status code
+        with open(os.path.join(get_data_dir(), "graph_data.json"), "wb") as file:
+            file.write(response.content)
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data: {e}")
+
+
+@app.before_first_request
+def update_data_before_first_request():
+    # Fetch and update the local data with the latest data from GitHub
+    fetch_latest_data()
 
 
 def get_average_occupancy(data, start_time, end_time):

@@ -35,7 +35,7 @@ jobs:
         python scripts/data_extractor.py
   
     - name: Upload data as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: graph-data
         path: data/graph_data.json

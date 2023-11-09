@@ -26,9 +26,8 @@ def fetch_latest_data():
         print(f"Error fetching data: {e}")
 
 
-@app.before_first_request
-def update_data_before_first_request():
-    # Fetch and update the local data with the latest data from GitHub
+# This code replaces the before_first_request functionality
+with app.app_context():
     fetch_latest_data()
 
 
